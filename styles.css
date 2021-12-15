@@ -1,0 +1,107 @@
+input {
+  border: 1px solid rgb(177, 176, 176);
+  border-radius: 4px;
+}
+
+section {
+  color: rgb(47, 47, 201);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(47, 47, 201);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+.weather-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+}
+.location-icon {
+  opacity: 0.5;
+}
+
+.location-icon:hover {
+  opacity: 1;
+}
+
+.weather-icon {
+  position: relative;
+  right: -45%;
+  font-size: xx-large;
+}
+
+.date-data,
+.weather,
+.higher-temp,
+.lower-temp,
+.weather-conditions {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  line-height: 32px;
+}
+
+.date-data,
+.weather {
+  font-size: 16px;
+  color: black;
+}
+.date-data {
+  margin: 40px 0;
+}
+.higher-temp {
+  color: rgb(218, 108, 18);
+  font-size: x-large;
+}
+
+.lower-temp {
+  color: rgb(70, 70, 241);
+  font-size: large;
+  text-decoration: none;
+}
+
+.weather-conditions {
+  font-size: smaller;
+  color: black;
+  margin: 40px 0;
+}
+
+.input-field {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.submit {
+  border: none;
+  background: transparent;
+  position: relative;
+  left: -35px;
+  color: gray;
+}
+
+.first {
+  border: 1px solid rgb(47, 47, 201);
+  border-radius: 4px;
+}
+.days {
+  margin-bottom: 100px;
+}
