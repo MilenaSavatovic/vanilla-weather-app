@@ -84,6 +84,7 @@ button {
 .weather {
   font-size: 16px;
   color: black;
+  text-transform: capitalize;
 }
 
 .input-field {

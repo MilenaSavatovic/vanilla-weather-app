@@ -1,8 +1,13 @@
-let currentTime = new Date()
-
-function formatDay(currentTime) {
-  let currentDay = document.querySelector('#current-day')
-
+function formatTime(timestamp) {
+  let date = new Date(timestamp)
+  let hours = date.getHours()
+  if (hours < 10) {
+    hours = `0${hours}`
+  }
+  let minutes = date.getMinutes()
+  if (minutes < 10) {
+    minutes = `0${minutes}`
+  }
   let days = [
     'Sunday',
     'Monday',
@@ -13,41 +18,17 @@ function formatDay(currentTime) {
     'Saturday',
   ]
 
-  currentDay.innerHTML = days[currentTime.getDay()]
+  let day = days[date.getDay()]
+  return `${day} ${hours}:${minutes}`
 }
 
-formatDay(currentTime)
+// function formatDay(timestamp) {
+//   let date = new Date(timestamp * 1000)
+//   let day = date.getDay()
+//   let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
-function formatDate(currentTime) {
-  let currentDate = document.querySelector('#current-date-month')
-
-  let months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ]
-
-  currentDate.innerHTML =
-    currentTime.getDate() + '. ' + months[currentTime.getMonth()]
-}
-
-formatDate(currentTime)
-
-function formatTime(event) {
-  let time = document.querySelector('h3')
-  time.innerHTML = currentTime.getHours() + ':' + currentTime.getMinutes()
-}
-
-formatTime(currentTime)
+//   return days[day]
+// }
 
 function showWeather(response) {
   let temp = Math.round(response.data.main.temp)
@@ -61,14 +42,19 @@ function showWeather(response) {
   let weatherDescription = document.querySelector('.weather')
   let currentWindSpeed = document.querySelector('#wind-speed')
   let currentHumidity = document.querySelector('#humidity')
-  // let weatherIcon = document.querySelector("#weather-icon");
+  let timeElement = document.querySelector('h3')
+  let weatherIcon = document.querySelector('#icon')
 
   currentTemp.innerHTML = temp
   weatherDescription.innerHTML = description
   currentWindSpeed.innerHTML = windSpeed
   currentHumidity.innerHTML = humidity
-  // weatherIcon.innerHTML =
-  // "<img src=" + iconUrl + "alt='Icon depicting current weather.'/>";
+  timeElement.innerHTML = formatTime(response.data.dt * 1000)
+  weatherIcon.setAttribute(
+    'src',
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+  )
+  weatherIcon.setAttribute('alt', response.data.weather[0].description)
 }
 
 function searchForCity(event) {
