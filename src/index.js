@@ -50,23 +50,23 @@ function formatTime(event) {
 formatTime(currentTime)
 
 function showWeather(response) {
-  let tempMin = Math.round(response.data.main.temp_min)
-  let tempMax = Math.round(response.data.main.temp_max)
+  let temp = Math.round(response.data.main.temp)
   let description = response.data.weather[0].description
   let windSpeed = response.data.wind.speed
+  let humidity = response.data.main.humidity
   // let icon = response.data.weather[0].icon;
   // var iconUrl = "http://openweathermap.org/img/w/" + icon + ".png";
 
-  let currentMin = document.querySelector('#temperature-low-first')
-  let currentMax = document.querySelector('#temperature-high-first')
+  let currentTemp = document.querySelector('#temperature')
   let weatherDescription = document.querySelector('.weather')
   let currentWindSpeed = document.querySelector('#wind-speed')
+  let currentHumidity = document.querySelector('#humidity')
   // let weatherIcon = document.querySelector("#weather-icon");
 
-  currentMin.innerHTML = tempMin
-  currentMax.innerHTML = tempMax
+  currentTemp.innerHTML = temp
   weatherDescription.innerHTML = description
   currentWindSpeed.innerHTML = windSpeed
+  currentHumidity.innerHTML = humidity
   // weatherIcon.innerHTML =
   // "<img src=" + iconUrl + "alt='Icon depicting current weather.'/>";
 }

@@ -1,10 +1,11 @@
 input {
   border: 1px solid rgb(177, 176, 176);
   border-radius: 4px;
+  margin-bottom: 30px;
 }
 
 section {
-  color: rgb(47, 47, 201);
+  color: rgb(82, 82, 143);
   margin-top: 30px;
   margin-bottom: 30px;
   font-family: 'Roboto', sans-serif;
@@ -20,18 +21,24 @@ p {
 
 a {
   text-decoration: none;
-  color: rgb(47, 47, 201);
 }
 
 a:hover {
   text-decoration: underline;
 }
 
+.units {
+  color: rgb(22, 14, 6);
+}
+
 button {
   border: none;
   background: transparent;
 }
-
+.weather-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+}
 .location-icon {
   opacity: 0.5;
 }
@@ -40,46 +47,43 @@ button {
   opacity: 1;
 }
 
-.weather-icon {
+.weather-temperature img {
+  margin-right: 5px;
+  height: 64px;
+  width: 64px;
+}
+
+.weather-temperature strong {
+  color: rgb(33, 33, 33);
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.weather-temperature .units {
   position: relative;
-  right: -45%;
-  font-size: xx-large;
+  font-size: 16px;
+  top: -34px;
 }
 
-.date-data,
-.weather,
-.higher-temp,
-.lower-temp,
-.weather-conditions {
-  display: block;
-  text-align: center;
+.weather-temperature .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
+.weather {
+  text-align: left;
   font-weight: bold;
-  line-height: 32px;
+  margin-top: 20px;
 }
+]
 
-.date-data,
 .weather {
   font-size: 16px;
   color: black;
-}
-.date-data {
-  margin: 40px 0;
-}
-.higher-temp {
-  color: rgb(218, 108, 18);
-  font-size: x-large;
-}
-
-.lower-temp {
-  color: rgb(70, 70, 241);
-  font-size: large;
-  text-decoration: none;
-}
-
-.weather-conditions {
-  font-size: smaller;
-  color: black;
-  margin: 40px 0;
 }
 
 .input-field {
@@ -95,10 +99,18 @@ button {
   color: gray;
 }
 
-.first {
-  border: 1px solid rgb(47, 47, 201);
-  border-radius: 4px;
+.first p {
+  border-bottom: 1px solid gray;
+  margin-bottom: 20px;
+}
+
+.first span {
+  font-weight: bold;
 }
 .days {
   margin-bottom: 100px;
+}
+
+.gitHubLink {
+  color: rgb(47, 47, 201);
 }

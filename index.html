@@ -17,11 +17,11 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="src/styles.css" />
     <script
       src="https://kit.fontawesome.com/3279666498.js"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="src/styles.css" />
     <title>Weather App</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
@@ -42,46 +42,49 @@
             </button>
           </form>
         </div>
+        <section>
+          <h1 id="city">Novi Sad</h1>
+          <h2 id="country">Serbia</h2>
+          <h3>Time</h3>
+        </section>
         <div class="row">
           <div class="col-sm-6">
-            <section>
-              <h1>Novi Sad</h1>
-              <h2>Serbia</h2>
-              <h3>Time</h3>
-              <h4>
-                <a href="#" id="celsius">°C</a>
-                |
-                <a href="#" id="farenheit">°F</a>
-              </h4>
-            </section>
+            <div class="clearfix weather-temperature">
+              <img src="" alt="Clear" id="icon" class="float-left" />
+              <span class="float-left">
+                <strong id="temperature"></strong>
+                <span class="units">°C</span>
+              </span>
+            </div>
+
+            <p class="weather">Sunny</p>
           </div>
 
           <div class="col-sm-6 days first">
-            <section class="date-data" data-id="0">
-              <p id="current-day">Saturday</p>
-              <p id="current-date-month">27. November</p>
-            </section>
-            <i class="fas fa-sun weather-icon"></i>
-            <p class="weather">Sunny</p>
-
-            <span class="higher-temp" id="temperature-high-first">
-              20
-            </span>
-
-            <span class="lower-temp" id="temperature-low-first">
-              15
-            </span>
-            <section class="weather-conditions">
-              <p>
-                Wind:
-                <span id="wind-speed">2</span>
-                km/h
-              </p>
-            </section>
+            <p>
+              Day:
+              <span id="current-day">Saturday</span>
+            </p>
+            <p>
+              Date:
+              <span id="current-date-month">
+                27. November
+              </span>
+            </p>
+            <p>
+              Wind:
+              <span id="wind-speed">2</span>
+              <strong>km/h</strong>
+            </p>
+            <p>
+              Humidity:
+              <span id="humidity">2</span>
+              <strong>%</strong>
+            </p>
           </div>
         </div>
       </div>
-      <div>
+      <div class="gitHubLink">
         <a
           href="https://github.com/MilenaSavatovic/weather-app"
           target="_blank"
