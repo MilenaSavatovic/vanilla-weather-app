@@ -22,14 +22,6 @@ function formatTime(timestamp) {
   return `${day} ${hours}:${minutes}`
 }
 
-// function formatDay(timestamp) {
-//   let date = new Date(timestamp * 1000)
-//   let day = date.getDay()
-//   let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
-
-//   return days[day]
-// }
-
 function showWeather(response) {
   celsiusTemperature = response.data.main.temp
   let temp = Math.round(celsiusTemperature)
@@ -84,9 +76,6 @@ function handleSubmit(event) {
   searchForCity(city.value)
 }
 
-let submitButton = document.querySelector('#input-form')
-submitButton.addEventListener('submit', handleSubmit)
-
 function showCurrentWeather(response) {
   let h1 = document.querySelector('h1')
   let h2 = document.querySelector('h2')
@@ -112,9 +101,6 @@ function getCurrentPosition(event) {
   navigator.geolocation.getCurrentPosition(retrievePosition)
 }
 
-let locationButton = document.querySelector('#location-button')
-locationButton.addEventListener('click', getCurrentPosition)
-
 function changeToCelsius(event) {
   event.preventDefault()
   changedTempCelsius.classList.add('active')
@@ -122,9 +108,6 @@ function changeToCelsius(event) {
   let temp = document.querySelector('#temperature')
   temp.innerHTML = Math.round(celsiusTemperature)
 }
-
-let changedTempCelsius = document.querySelector('#celsius')
-changedTempCelsius.addEventListener('click', changeToCelsius)
 
 function changeToFarenheit(event) {
   event.preventDefault()
@@ -134,8 +117,14 @@ function changeToFarenheit(event) {
   let farenhajtTemperatureHigh = Math.round((celsiusTemperature * 9) / 5 + 32)
   temp.innerHTML = farenhajtTemperatureHigh
 }
-
 let celsiusTemperature = null
+let submitButton = document.querySelector('#input-form')
+submitButton.addEventListener('submit', handleSubmit)
+
+let locationButton = document.querySelector('#location-button')
+locationButton.addEventListener('click', getCurrentPosition)
+let changedTempCelsius = document.querySelector('#celsius')
+changedTempCelsius.addEventListener('click', changeToCelsius)
 
 let changedTempFarenheit = document.querySelector('#farenheit')
 changedTempFarenheit.addEventListener('click', changeToFarenheit)
