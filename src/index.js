@@ -34,9 +34,9 @@ function showWeather(response) {
   let weatherDescription = document.querySelector('.weather')
   let currentWindSpeed = document.querySelector('#wind-speed')
   let currentHumidity = document.querySelector('#humidity')
-  let timeElement = document.querySelector('h3')
+  let timeElement = document.querySelector('#time')
   let weatherIcon = document.querySelector('#icon')
-  let currentCountry = document.querySelector('h2')
+  let currentCountry = document.querySelector('#country')
 
   currentTemp.innerHTML = temp
   weatherDescription.innerHTML = description
@@ -61,8 +61,8 @@ function searchForCity(city) {
     '&units=metric'
 
   if (city !== undefined) {
-    let h1 = document.querySelector('h1')
-    h1.innerHTML = city
+    let currentCity = document.querySelector('#city')
+    currentCity.innerHTML = city
     axios.get(url).then(showWeather)
   } else {
     city = null
@@ -77,13 +77,13 @@ function handleSubmit(event) {
 }
 
 function showCurrentWeather(response) {
-  let h1 = document.querySelector('h1')
-  let h2 = document.querySelector('h2')
+  let currentCity = document.querySelector('#city')
+  let currentCountry = document.querySelector('#country')
   let city = response.data.name
   let country = response.data.sys.country
 
-  h1.innerHTML = city
-  h2.innerHTML = country
+  currentCity.innerHTML = city
+  currentCountry.innerHTML = country
 
   showWeather(response)
 }
@@ -118,11 +118,13 @@ function changeToFarenheit(event) {
   temp.innerHTML = farenhajtTemperatureHigh
 }
 let celsiusTemperature = null
+
 let submitButton = document.querySelector('#input-form')
 submitButton.addEventListener('submit', handleSubmit)
 
 let locationButton = document.querySelector('#location-button')
 locationButton.addEventListener('click', getCurrentPosition)
+
 let changedTempCelsius = document.querySelector('#celsius')
 changedTempCelsius.addEventListener('click', changeToCelsius)
 
