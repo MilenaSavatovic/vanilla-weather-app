@@ -27,9 +27,9 @@ a:hover {
   text-decoration: underline;
 }
 
-.units {
+/* .units a {
   color: rgb(22, 14, 6);
-}
+} */
 
 button {
   border: none;
@@ -79,7 +79,6 @@ button {
   font-weight: bold;
   margin-top: 20px;
 }
-]
 
 .weather {
   font-size: 16px;

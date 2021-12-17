@@ -31,7 +31,8 @@ function formatTime(timestamp) {
 // }
 
 function showWeather(response) {
-  let temp = Math.round(response.data.main.temp)
+  celsiusTemperature = response.data.main.temp
+  let temp = Math.round(celsiusTemperature)
   let description = response.data.weather[0].description
   let windSpeed = response.data.wind.speed
   let humidity = response.data.main.humidity
@@ -83,8 +84,6 @@ function handleSubmit(event) {
   searchForCity(city.value)
 }
 
-searchForCity('New York')
-
 let submitButton = document.querySelector('#input-form')
 submitButton.addEventListener('submit', handleSubmit)
 
@@ -116,49 +115,29 @@ function getCurrentPosition(event) {
 let locationButton = document.querySelector('#location-button')
 locationButton.addEventListener('click', getCurrentPosition)
 
-function calculateToCelsius(temp) {
-  let celsiusTemp = Math.round(((temp - 32) * 5) / 9)
-  return celsiusTemp
-}
-
 function changeToCelsius(event) {
   event.preventDefault()
-  let higherTemp = document.querySelector('#temperature-high-first').innerText
-  let lowerTemp = document.querySelector('#temperature-low-first').innerText
-
-  let celsiusTemperatureHigh = calculateToCelsius(higherTemp)
-  document.querySelector(
-    '#temperature-high-first',
-  ).innerHTML = celsiusTemperatureHigh
-  let celsiusTemperatureLow = calculateToCelsius(lowerTemp)
-  document.querySelector(
-    '#temperature-low-first',
-  ).innerHTML = celsiusTemperatureLow
+  changedTempCelsius.classList.add('active')
+  changedTempFarenheit.classList.remove('active')
+  let temp = document.querySelector('#temperature')
+  temp.innerHTML = Math.round(celsiusTemperature)
 }
 
 let changedTempCelsius = document.querySelector('#celsius')
 changedTempCelsius.addEventListener('click', changeToCelsius)
 
-function calculateToFarenheit(temp) {
-  let farenheitTemp = Math.round((temp * 9) / 5 + 32)
-  return farenheitTemp
-}
-
 function changeToFarenheit(event) {
   event.preventDefault()
-  let higherTemp = document.querySelector('#temperature-high-first').innerText
-  let lowerTemp = document.querySelector('#temperature-low-first').innerText
-
-  let farenhajtTemperatureHigh = calculateToFarenheit(higherTemp)
-  document.querySelector(
-    '#temperature-high-first',
-  ).innerHTML = farenhajtTemperatureHigh
-
-  let farenhajtTemperatureLow = calculateToFarenheit(lowerTemp)
-  document.querySelector(
-    '#temperature-low-first',
-  ).innerHTML = farenhajtTemperatureLow
+  let temp = document.querySelector('#temperature')
+  changedTempCelsius.classList.remove('active')
+  changedTempFarenheit.classList.add('active')
+  let farenhajtTemperatureHigh = Math.round((celsiusTemperature * 9) / 5 + 32)
+  temp.innerHTML = farenhajtTemperatureHigh
 }
+
+let celsiusTemperature = null
 
 let changedTempFarenheit = document.querySelector('#farenheit')
 changedTempFarenheit.addEventListener('click', changeToFarenheit)
+
+searchForCity('New York')
