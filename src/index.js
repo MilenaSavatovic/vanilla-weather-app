@@ -35,8 +35,7 @@ function showWeather(response) {
   let description = response.data.weather[0].description
   let windSpeed = response.data.wind.speed
   let humidity = response.data.main.humidity
-  // let icon = response.data.weather[0].icon;
-  // var iconUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+  let country = response.data.sys.country
 
   let currentTemp = document.querySelector('#temperature')
   let weatherDescription = document.querySelector('.weather')
@@ -44,6 +43,7 @@ function showWeather(response) {
   let currentHumidity = document.querySelector('#humidity')
   let timeElement = document.querySelector('h3')
   let weatherIcon = document.querySelector('#icon')
+  let currentCountry = document.querySelector('h2')
 
   currentTemp.innerHTML = temp
   weatherDescription.innerHTML = description
@@ -55,25 +55,21 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
   )
   weatherIcon.setAttribute('alt', response.data.weather[0].description)
+  currentCountry.innerHTML = country
 }
 
-function searchForCity(event) {
-  event.preventDefault()
-  let city = document.querySelector('#input')
-  let country = document.querySelector('h2')
-
+function searchForCity(city) {
   let apiKey = '9402fdeb43e1bddf29be4a16f4625ef0'
   let url =
     'https://api.openweathermap.org/data/2.5/weather?q=' +
-    city.value +
+    city +
     '&appid=' +
     apiKey +
     '&units=metric'
 
   if (city !== undefined) {
     let h1 = document.querySelector('h1')
-    h1.innerHTML = city.value
-    country.innerHTML = ' '
+    h1.innerHTML = city
     axios.get(url).then(showWeather)
   } else {
     city = null
@@ -81,8 +77,16 @@ function searchForCity(event) {
   }
 }
 
+function handleSubmit(event) {
+  event.preventDefault()
+  let city = document.querySelector('#input')
+  searchForCity(city.value)
+}
+
+searchForCity('New York')
+
 let submitButton = document.querySelector('#input-form')
-submitButton.addEventListener('submit', searchForCity)
+submitButton.addEventListener('submit', handleSubmit)
 
 function showCurrentWeather(response) {
   let h1 = document.querySelector('h1')
