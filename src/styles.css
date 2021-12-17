@@ -1,18 +1,18 @@
+body {
+  background-color: #ebebe3;
+}
+
 input {
-  border: 1px solid rgb(177, 176, 176);
+  border: 1px solid #ebebe3;
   border-radius: 4px;
   margin-bottom: 30px;
 }
 
 section {
-  color: rgb(82, 82, 143);
+  color: #2b2b28;
   margin-top: 30px;
   margin-bottom: 30px;
   font-family: 'Roboto', sans-serif;
-}
-
-h2 {
-  font-weight: 400;
 }
 
 p {
@@ -30,10 +30,20 @@ a:hover {
 button {
   border: none;
   background: transparent;
+  position: relative;
+  left: -30px;
+}
+
+.location {
+  font-size: larger;
 }
 .weather-wrapper {
   max-width: 600px;
   margin: 30px auto;
+  border: 1px solid #c19898;
+  border-radius: 10px;
+  padding: 30px;
+  background: #c19898;
 }
 .location-icon {
   opacity: 0.5;
@@ -50,7 +60,7 @@ button {
 }
 
 .weather-temperature strong {
-  color: rgb(33, 33, 33);
+  color: #2b2b28;
   font-size: 64px;
   line-height: 1;
   font-weight: 400;
@@ -63,7 +73,7 @@ button {
 }
 
 .weather-temperature .active {
-  color: rgb(33, 33, 33);
+  color: #2b2b28;
   cursor: default;
 }
 
@@ -71,20 +81,16 @@ button {
   text-decoration: none;
 }
 .weather {
+  color: #2b2b28;
   text-align: left;
   font-weight: bold;
   margin-top: 20px;
-}
-
-.weather {
   font-size: 16px;
-  color: black;
   text-transform: capitalize;
 }
 
 .input-field {
   text-align: center;
-  margin-top: 50px;
 }
 
 .submit {
@@ -108,5 +114,5 @@ button {
 }
 
 .gitHubLink {
-  color: rgb(47, 47, 201);
+  color: #2b2b28;
 }
