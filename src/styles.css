@@ -45,10 +45,11 @@ button {
 .weather-wrapper {
   max-width: 600px;
   margin: 30px auto;
-  border: 1px solid rgb(182, 179, 179);
+  border: 1px solid white;
   border-radius: 10px;
   padding: 30px;
-  background: rgb(182, 179, 179);
+  background: white;
+  box-shadow: 5px 5px 5px grey;
 }
 .location-icon {
   opacity: 0.5;
@@ -62,6 +63,10 @@ button {
   margin-right: 5px;
   height: 64px;
   width: 64px;
+  overflow: hidden;
+  border-radius: 50px;
+  background-color: rgb(199, 191, 191);
+  box-shadow: 5px 5px 5px grey;
 }
 
 .weather-temperature strong {
@@ -120,4 +125,10 @@ button {
 
 .gitHubLink {
   color: #2b2b28;
+}
+
+.data {
+  position: relative;
+  right: -15px;
+  bottom: -15px;
 }
