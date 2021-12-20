@@ -6,6 +6,11 @@ input {
   border: 1px solid #ebebe3;
   border-radius: 4px;
   margin-bottom: 30px;
+  border-style: groove;
+}
+
+input:focus {
+  outline: none;
 }
 
 section {
@@ -40,10 +45,10 @@ button {
 .weather-wrapper {
   max-width: 600px;
   margin: 30px auto;
-  border: 1px solid #c19898;
+  border: 1px solid rgb(182, 179, 179);
   border-radius: 10px;
   padding: 30px;
-  background: #c19898;
+  background: rgb(182, 179, 179);
 }
 .location-icon {
   opacity: 0.5;
