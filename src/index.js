@@ -1,6 +1,5 @@
 function formatTime(timestamp) {
   let date = new Date(timestamp * 1000)
-  console.log(date)
   let hours = date.getHours()
   if (hours < 10) {
     hours = `0${hours}`
@@ -64,7 +63,6 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates)
   let apiKey = '9402fdeb43e1bddf29be4a16f4625ef0'
   let apiUrl =
     'https://api.openweathermap.org/data/2.5/onecall?lat=' +
