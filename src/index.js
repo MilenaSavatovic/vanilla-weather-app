@@ -158,35 +158,11 @@ function getCurrentPosition(event) {
   navigator.geolocation.getCurrentPosition(retrievePosition)
 }
 
-function changeToCelsius(event) {
-  event.preventDefault()
-  changedTempCelsius.classList.add('active')
-  changedTempFarenheit.classList.remove('active')
-  let temp = document.querySelector('#temperature')
-  temp.innerHTML = Math.round(celsiusTemperature)
-}
-
-function changeToFarenheit(event) {
-  event.preventDefault()
-  let temp = document.querySelector('#temperature')
-  changedTempCelsius.classList.remove('active')
-  changedTempFarenheit.classList.add('active')
-  let farenhajtTemperatureHigh = Math.round((celsiusTemperature * 9) / 5 + 32)
-  temp.innerHTML = farenhajtTemperatureHigh
-}
-let celsiusTemperature = null
-
 let submitButton = document.querySelector('#input-form')
 submitButton.addEventListener('submit', handleSubmit)
 
 let locationButton = document.querySelector('#location-button')
 locationButton.addEventListener('click', getCurrentPosition)
-
-let changedTempCelsius = document.querySelector('#celsius')
-changedTempCelsius.addEventListener('click', changeToCelsius)
-
-let changedTempFarenheit = document.querySelector('#farenheit')
-changedTempFarenheit.addEventListener('click', changeToFarenheit)
 
 searchForCity('New York')
 displayForecast()
