@@ -4,9 +4,12 @@ body {
 
 input {
   border: 1px solid #ebebe3;
-  border-radius: 4px;
+  border-radius: 10px;
   margin-bottom: 30px;
   border-style: groove;
+  width: 40%;
+  height: 36px;
+  padding-left: 10px;
 }
 
 input:focus {
@@ -37,6 +40,7 @@ button {
   background: transparent;
   position: relative;
   left: -30px;
+  top: -3px;
 }
 
 .location {
@@ -103,8 +107,9 @@ button {
   border: none;
   background: transparent;
   position: relative;
-  left: -35px;
+  left: -40px;
   color: gray;
+  width: 30px;
 }
 
 .first p {
@@ -147,4 +152,8 @@ button {
 
 .weather-forecast-temperature-min {
   opacity: 0.6;
+}
+
+.weather-conditions {
+  color: #ec6e4c;
 }

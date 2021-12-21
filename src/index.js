@@ -1,5 +1,6 @@
 function formatTime(timestamp) {
-  let date = new Date(timestamp)
+  let date = new Date(timestamp * 1000)
+  console.log(date)
   let hours = date.getHours()
   if (hours < 10) {
     hours = `0${hours}`
@@ -96,7 +97,7 @@ function showWeather(response) {
   weatherDescription.innerHTML = description
   currentWindSpeed.innerHTML = windSpeed
   currentHumidity.innerHTML = humidity
-  timeElement.innerHTML = formatTime(response.data.dt * 1000)
+  timeElement.innerHTML = formatTime(response.data.dt)
   weatherIcon.setAttribute(
     'src',
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
