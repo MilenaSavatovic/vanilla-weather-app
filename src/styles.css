@@ -63,10 +63,6 @@ button {
   margin-right: 5px;
   height: 64px;
   width: 64px;
-  overflow: hidden;
-  border-radius: 50px;
-  background-color: rgb(199, 191, 191);
-  box-shadow: 5px 5px 5px grey;
 }
 
 .weather-temperature strong {
@@ -133,7 +129,7 @@ button {
   bottom: -15px;
 }
 
-/* .weather-forecast {
+.weather-forecast {
   margin-top: 20px;
   margin-bottom: 30px;
   text-align: center;
@@ -151,4 +147,4 @@ button {
 
 .weather-forecast-temperature-min {
   opacity: 0.6;
-} */
+}
